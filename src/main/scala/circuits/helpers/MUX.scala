@@ -2,7 +2,6 @@ package sysarch.circuits.helpers
 
 import sysarch.chisel._
 import sysarch.gates._
-import sysarch.circuits.helpers._
 
 class Mux(width: Int) extends Module {
   val a   = IO(Input(Vec(width, Bool())))
@@ -11,10 +10,10 @@ class Mux(width: Int) extends Module {
   val out = IO(Output(Vec(width, Bool())))
 
   for (i <- 0 until width) {
-    val NotGate  = Module(new (NOTGate))
-    val AndGateA = Module(new ANDGate)
-    val AndGateB = Module(new ANDGate)
-    val OrGate   = Module(new (ORGate))
+    val NotGate  = Module(new NOTGate())
+    val AndGateA = Module(new ANDGate())
+    val AndGateB = Module(new ANDGate())
+    val OrGate   = Module(new ORGate())
 
     NotGate.a  := sel
     AndGateA.a := NotGate.out

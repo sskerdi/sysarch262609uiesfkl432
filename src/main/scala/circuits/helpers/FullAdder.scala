@@ -2,7 +2,6 @@ package sysarch.circuits.helpers
 
 import sysarch.chisel._
 import sysarch.gates._
-import sysarch.circuits.helpers._
 
 class FullAdder extends Module {
   val a    = IO(Input(Bool()))
@@ -11,9 +10,9 @@ class FullAdder extends Module {
   val sum  = IO(Output(Bool()))
   val cout = IO(Output(Bool()))
 
-  val ha1    = Module(new HalfAdder)
-  val ha2    = Module(new HalfAdder)
-  val OrGate = Module(new ORGate)
+  val ha1    = Module(new HalfAdder())
+  val ha2    = Module(new HalfAdder())
+  val OrGate = Module(new ORGate())
 
   ha1.a    := a
   ha1.b    := b
